@@ -19,7 +19,6 @@ import com.example.domain.Country;
  */
 public class Exercise15 {
 	private static final CountryDao countryDao = InMemoryWorldDao.getInstance();
-	private static final ToIntFunction<Country> compareByCitiyNumber = country -> country.getCities().size();
 	private static final Consumer<Country> printCountry = country -> System.err.printf("%s: %d\n",country.getName(),country.getCities().size());
 	private static final BiConsumer<String,List<Country>> printEntry = (continent,countries) -> {
 		System.err.println(continent);
@@ -30,7 +29,12 @@ public class Exercise15 {
 
 	public static void main(String[] args) {
 		// Group the countries by continent, and then sort the countries in each continent by number of cities in each country.
+		List<Country> countries = countryDao.findAllCountries();
 
+		countries.stream()
+				.sorted((country1, country2) -> Integer.compare(country2.getCities().size(), country1.getCities().size()))
+				.collect(groupingBy(Country::getContinent))
+				.forEach(printEntry);
 	}
 
 }

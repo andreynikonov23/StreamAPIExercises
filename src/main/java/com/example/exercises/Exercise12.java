@@ -3,8 +3,10 @@ package com.example.exercises;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.summarizingLong;
 
+import java.util.List;
 import java.util.LongSummaryStatistics;
 import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
 
 import com.example.dao.InMemoryWorldDao;
 import com.example.dao.WorldDao;
@@ -22,7 +24,11 @@ public class Exercise12 {
 
 	public static void main(String[] args) {
 		// Find the minimum, the maximum and the average population of each continent.
+		List<Country> countries = worldDao.findAllCountries();
 
+		countries.stream()
+				.collect(Collectors.groupingBy(Country::getContinent, Collectors.summarizingLong(Country::getPopulation)))
+				.forEach(printEntry);
 	}
 
 }

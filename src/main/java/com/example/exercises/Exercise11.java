@@ -6,6 +6,9 @@ import com.example.dao.InMemoryWorldDao;
 import com.example.dao.WorldDao;
 import com.example.domain.Country;
 
+import java.util.Comparator;
+import java.util.List;
+
 /**
  * 
  * @author Binnur Kurt <binnur.kurt@gmail.com>
@@ -16,7 +19,10 @@ public class Exercise11 {
 
 	public static void main(String[] args) {
 		// Find the minimum, the maximum and the average population of world countries
+		List<Country> countries = worldDao.findAllCountries();
 
+		System.out.println(countries.stream()
+				.collect(summarizingLong(Country::getPopulation)));
 	}
 
 }
