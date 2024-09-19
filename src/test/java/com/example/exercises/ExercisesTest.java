@@ -9,7 +9,6 @@ import java.io.PrintStream;
 
 public class ExercisesTest {
     private final static ByteArrayOutputStream OUTPUT = new ByteArrayOutputStream();
-    private final static PrintStream ORIGINAL_OUT = new PrintStream(System.out);
     private static final String[] emptyArgs = new String[0];
 
     @BeforeEach
@@ -169,10 +168,19 @@ public class ExercisesTest {
     }
     @Test
     public void exercise17() {
-        SolutionExercise16.main(emptyArgs);
+        SolutionExercise17.main(emptyArgs);
         String correctAnswer = OUTPUT.toString();
         OUTPUT.reset();
-        Exercise16.main(emptyArgs);
+        Exercise17.main(emptyArgs);
+        String actualAnswer = OUTPUT.toString();
+        Assertions.assertEquals(correctAnswer, actualAnswer);
+    }
+    @Test
+    public void exercise18() {
+        SolutionExercise18.main(emptyArgs);
+        String correctAnswer = OUTPUT.toString();
+        OUTPUT.reset();
+        Exercise18.main(emptyArgs);
         String actualAnswer = OUTPUT.toString();
         Assertions.assertEquals(correctAnswer, actualAnswer);
     }
