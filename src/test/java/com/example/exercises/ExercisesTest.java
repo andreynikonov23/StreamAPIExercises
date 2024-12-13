@@ -184,4 +184,22 @@ public class ExercisesTest {
         String actualAnswer = OUTPUT.toString();
         Assertions.assertEquals(correctAnswer, actualAnswer);
     }
+    @Test
+    public void exercise19() {
+        org.example.correctSolutions.SolutionExercise19.main(emptyArgs);
+        String correctAnswer = OUTPUT.toString();
+        OUTPUT.reset();
+        Exercise19.main(emptyArgs);
+        String actualAnswer = OUTPUT.toString();
+        Assertions.assertEquals(correctAnswer, actualAnswer);
+    }
+    @Test
+    public void exercise20() {
+        org.example.correctSolutions.SolutionExercise20.main(emptyArgs);
+        String correctAnswer = OUTPUT.toString();
+        OUTPUT.reset();
+        Exercise20.main(emptyArgs);
+        String actualAnswer = OUTPUT.toString();
+        Assertions.assertEquals(correctAnswer, actualAnswer);
+    }
 }

@@ -14,11 +14,12 @@ import com.example.domain.*;
 public class Exercise20 {
 	private static final List<Animal> animals = Arrays.asList(new Cat(), new Spider(), new Cat("Tekir"),
 			new Fish("Free Willy"), new Spider(), new Fish("Jaws"));
-	private static final Predicate<Animal> isPet = Pet.class::isInstance;
 
 	public static void main(String[] args) {
 		// Take a list of pets
-		List<Animal> wildAnimals = animals.stream().filter(isPet).collect(Collectors.toList());
-		wildAnimals.stream().map(Object::getClass).map(Class::getName).distinct().forEach(System.out::println);
+		animals.stream().filter(animal -> {
+			Class<? extends Animal> animalClass = animal.getClass();
+			return Pet.class.isAssignableFrom(animalClass);
+		}).map(Animal::getClass).distinct().forEach(aClass -> System.out.println(aClass.getName()));
 	}
 }
