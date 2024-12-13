@@ -5,6 +5,7 @@ import com.example.dao.WorldDao;
 import com.example.domain.Country;
 import com.example.util.DoubleSummaryGaussianStatistics;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
@@ -24,7 +25,6 @@ public class Exercise17 {
 	public static void main(String[] args) {
 		// Find the minimum, the maximum, the average, and the standard deviation of GNP values.
 		List<Country> countries = worldDao.findAllCountries();
-
 		System.out.println(countries.stream()
 				.mapToDouble(Country::getGnp)
 				.collect(DoubleSummaryGaussianStatistics::new, DoubleSummaryGaussianStatistics::accept, DoubleSummaryGaussianStatistics::combine));
