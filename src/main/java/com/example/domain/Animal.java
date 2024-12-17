@@ -19,4 +19,9 @@ public abstract class Animal {
 		);
 	}
 	public abstract void eat(); // abstract method
+
+	@Override
+	public String toString() {
+		return this.getClass().getName();
+	}
 }
