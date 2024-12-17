@@ -211,4 +211,13 @@ public class ExercisesTest {
         String actualAnswer = OUTPUT.toString();
         Assertions.assertEquals(correctAnswer, actualAnswer);
     }
+    @Test
+    public void exercise24() {
+        org.example.correctSolutions.SolutionExercise24.main(emptyArgs);
+        String correctAnswer = OUTPUT.toString();
+        OUTPUT.reset();
+        Exercise24.main(emptyArgs);
+        String actualAnswer = OUTPUT.toString();
+        Assertions.assertEquals(correctAnswer, actualAnswer);
+    }
 }

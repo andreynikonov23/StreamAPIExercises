@@ -14,15 +14,12 @@ import com.example.domain.*;
  *
  */
 public class Exercise25 {
-	private static final BiConsumer<Class<?>, Long> printGroup = (clazz, count) -> System.out
-			.println(clazz.getSimpleName() + ": " + count);
+
 
 	public static void main(String[] args) {
 		// Count the number of animals in each species
 		List<Animal> animals = Arrays.asList(new Cat(), new Spider(), new Cat("Tekir"), new Fish("Free Willy"),
 				new Spider(), new Fish("Jaws"));
-		Map<Class<?>, Long> groupedAnimals = animals.stream()
-				.collect(Collectors.groupingBy(Animal::getClass, Collectors.counting()));
-		groupedAnimals.forEach(printGroup);
+
 	}
 }
