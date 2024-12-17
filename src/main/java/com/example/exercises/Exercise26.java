@@ -2,6 +2,7 @@ package com.example.exercises;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.example.domain.*;
 
@@ -15,7 +16,6 @@ public class Exercise26 {
 		// Count the number of species
 		List<Animal> animals = Arrays.asList(new Cat(), new Spider(), new Cat("Tekir"), new Fish("Free Willy"),
 				new Spider(), new Fish("Jaws"));
-		long totalNumberOfSpecies = animals.stream().map(Animal::getClass).map(Class::getSimpleName).distinct().count();
-		System.out.println(totalNumberOfSpecies);
+		System.out.println(animals.stream().collect(Collectors.groupingBy(Animal::getClass)).size());
 	}
 }

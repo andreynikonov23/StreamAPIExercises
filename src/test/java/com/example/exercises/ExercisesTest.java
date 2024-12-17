@@ -203,37 +203,49 @@ public class ExercisesTest {
         Assertions.assertEquals(correctAnswer, actualAnswer);
     }
     @Test
-<<<<<<< HEAD
     public void exercise21() {
         org.example.correctSolutions.SolutionExercise21.main(emptyArgs);
         String correctAnswer = OUTPUT.toString();
         OUTPUT.reset();
         Exercise21.main(emptyArgs);
-=======
+        String actualAnswer = OUTPUT.toString();
+        Assertions.assertEquals(correctAnswer, actualAnswer);
+    }
+    @Test
     public void exercise23() {
         org.example.correctSolutions.SolutionExercise23.main(emptyArgs);
         String correctAnswer = OUTPUT.toString();
         OUTPUT.reset();
         Exercise23.main(emptyArgs);
->>>>>>> ex22
         String actualAnswer = OUTPUT.toString();
         Assertions.assertEquals(correctAnswer, actualAnswer);
     }
     @Test
-<<<<<<< HEAD
-    public void exercise22() {
-        org.example.correctSolutions.SolutionExercise22.main(emptyArgs);
-        String correctAnswer = OUTPUT.toString();
-        OUTPUT.reset();
-        Exercise22.main(emptyArgs);
-=======
     public void exercise24() {
         org.example.correctSolutions.SolutionExercise24.main(emptyArgs);
         String correctAnswer = OUTPUT.toString();
         OUTPUT.reset();
         Exercise24.main(emptyArgs);
->>>>>>> ex22
         String actualAnswer = OUTPUT.toString();
         Assertions.assertEquals(correctAnswer, actualAnswer);
     }
+    @Test
+    public void exercise25() {
+        org.example.correctSolutions.SolutionExercise25.main(emptyArgs);
+        String correctAnswer = OUTPUT.toString();
+        OUTPUT.reset();
+        Exercise25.main(emptyArgs);
+        String actualAnswer = OUTPUT.toString();
+        Assertions.assertEquals(correctAnswer, actualAnswer);
+    }
+    @Test
+    public void exercise26() {
+        org.example.correctSolutions.SolutionExercise26.main(emptyArgs);
+        String correctAnswer = OUTPUT.toString();
+        OUTPUT.reset();
+        Exercise26.main(emptyArgs);
+        String actualAnswer = OUTPUT.toString();
+        Assertions.assertEquals(correctAnswer, actualAnswer);
+    }
+
 }

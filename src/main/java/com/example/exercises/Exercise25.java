@@ -14,12 +14,10 @@ import com.example.domain.*;
  *
  */
 public class Exercise25 {
-
-
 	public static void main(String[] args) {
 		// Count the number of animals in each species
 		List<Animal> animals = Arrays.asList(new Cat(), new Spider(), new Cat("Tekir"), new Fish("Free Willy"),
 				new Spider(), new Fish("Jaws"));
-
+		animals.stream().collect(Collectors.groupingBy(Animal::getClass, Collectors.counting())).forEach((species, count) -> System.out.println(species.getSimpleName() + ": " + count));
 	}
 }
