@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import com.example.domain.*;
 
@@ -24,8 +25,14 @@ public class Exercise22 {
 
 	public static void main(String[] args) {
 		// Take a list of 100 random animals
-		final List<Animal> randomAnimals = IntStream.generate(() -> random.nextInt(suppliers.size())).mapToObj(suppliers::get)
-				.map(Supplier::get).limit(100).collect(Collectors.toList());
-		randomAnimals.forEach(System.out::println);
+		List<Animal> result = IntStream.range(0, 99).mapToObj(operand -> {
+			int a = new Random().nextInt(0, 2);
+			return switch (a) {
+				case 0 -> new Cat();
+				case 1 -> new Fish("Alexey");
+				case 2 -> new Spider();
+				default -> throw new IllegalStateException("Unexpected value: " + a);
+			};
+		})
 	}
 }
